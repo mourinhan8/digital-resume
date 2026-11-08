@@ -1,8 +1,6 @@
 // Resume content. The `resumes` map lets you keep multiple CV variants (e.g. "default", "backend")
 // and switch between them via the `cvType` query param on the resume page.
-// Content follows the resume-cover-letter skill: positioning summary, CAR-style
-// bullets with strong verbs, no filler bullets. "TODO metric" comments mark
-// places where a real number would strengthen the bullet.
+// Project details come from the source CV and candidate-provided descriptions.
 import type { ResumeData } from "./types";
 
 const defaultResume: ResumeData = {
@@ -17,7 +15,7 @@ const defaultResume: ResumeData = {
     website: null,
   },
   summary:
-    "Full-stack developer with 4+ years shipping web products on React/Next.js, NestJS, and FastAPI, most recently building production AI systems: no-code agent platforms, Retrieval-Augmented Generation (RAG) pipelines, and multi-vector-store search at AIxBlock. Comfortable owning a feature from data model to deployment on AWS, with a cybersecurity background that shows up in how I handle auth, RBAC, and data protection. Looking for a senior full-stack or AI engineering role where I can own delivery end to end and grow into leading a small team.",
+    "Full-stack developer with over four years of software development experience across web applications and backend services. Built Go (Golang) backends for financial investment and ecommerce platforms, with Next.js frontends and payment-gateway integrations. Additional experience includes React, Node.js, NestJS, ExpressJS, FastAPI, database design, API integration, authentication and authorization, Redis caching, asynchronous processing, and AWS deployment. Uses AI coding agents for implementation, debugging, testing, and code review, with a cybersecurity background informing security and data-protection decisions.",
   education: [
     {
       institution: "Peter the Great St. Petersburg Polytechnic University",
@@ -40,10 +38,8 @@ const defaultResume: ResumeData = {
       endDate: "Feb 2026",
       achievements: [
         "Built a production no-code AI agent platform (ReactJS, NestJS, FastAPI) that lets non-developers assemble, configure, and deploy LLM agents with MCP-based context management, dynamic prompting, and function calling.",
-        // TODO metric: latency/cost improvement
         "Designed the RAG pipeline end to end (ingestion, chunking, embedding, indexing, hybrid retrieval) and integrated FAISS, Pinecone, and Weaviate so users can pick a vector backend and embedding model per use case to balance cost and latency.",
         "Hardened the platform for production: Auth0 authentication with RBAC, Redis caching and Pub/Sub for real-time updates, RabbitMQ pipelines for asynchronous processing.",
-        // TODO metric: number of users/workflows
         "Delivered a no-code AI training workflow with reusable templates and predefined training scripts, standardised pipeline config via MCP, and Grafana monitoring of training runs.",
       ],
     },
@@ -55,9 +51,6 @@ const defaultResume: ResumeData = {
       endDate: "Apr 2025",
       achievements: [
         "Designed and implemented scalable FastAPI backends for client data-analytics and AI products, owning performance, reliability, and alignment with client requirements.",
-        // TODO metric: response time / hardware footprint
-        "Built a local-model virtual assistant (Ollama, LangChain, vector DB) with a full RAG pipeline, tuned for low-latency inference on limited hardware.",
-        "Developed a social-media trend collector and predictor (Pyppeteer scraping, FastAPI services, LLM classification) with a Next.js/MUI dashboard.",
       ],
     },
     {
@@ -68,10 +61,7 @@ const defaultResume: ResumeData = {
       endDate: "Jan 2024",
       achievements: [
         "Delivered dApp and AI outsourcing projects across NestJS, Next.js, FastAPI, Django, and Flask, working directly with the BA team and clients from requirements through release.",
-        "Shipped an administrative document-sharing system with OpenFGA fine-grained authorization, SSO integration, RabbitMQ microservices, and AWS deployment.",
-        "Built a computer-vision exam-proctoring app (Mediapipe face-behaviour detection, Next.js, FastAPI) and contributed findings to a published research article.",
-        // TODO metric: team size
-        "Coordinated a small developer team as a step toward technical leadership.",
+        "Received training in leading a small development team.",
       ],
     },
     {
@@ -81,12 +71,12 @@ const defaultResume: ResumeData = {
       startDate: "Mar 2022",
       endDate: "Aug 2022",
       achievements: [
-        "Built web application features with Next.js and NestJS in a startup team, learning API integration and collaborative Git workflows on real client work.",
+        "Trained in and contributed to Next.js and NestJS web applications, developing practical skills in web architecture, API integration, and collaborative development workflows.",
       ],
     },
   ],
   skills: [
-    { category: "Languages", items: ["TypeScript", "JavaScript", "Python", "Java"] },
+    { category: "Languages", items: ["Go (Golang)", "TypeScript", "JavaScript", "Python", "Java"] },
     {
       category: "Frontend",
       items: ["React", "Next.js", "Tauri (desktop)", "Tailwind CSS", "shadcn/ui", "MUI", "Ant Design", "Mantine"],
@@ -107,7 +97,7 @@ const defaultResume: ResumeData = {
         "Ollama",
         "Hugging Face",
         "Prompt engineering",
-        "LLM fine-tuning and deployment",
+        "LLM training, testing, inference, and deployment",
       ],
     },
     { category: "Data", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "RabbitMQ"] },
@@ -120,6 +110,81 @@ const defaultResume: ResumeData = {
   ],
   projects: [
     {
+      title: "Social Finance – Financial Investment Platform",
+      role: "Go (Golang), Next.js, Web3.js, MongoDB, JWT, AWS",
+      achievements: [
+        "Analyzed investment-platform requirements and designed the database structure.",
+        "Built and maintained the Next.js website and designed, implemented, and maintained backend services in Go.",
+        "Integrated a cryptocurrency payment gateway into the platform.",
+        "Debugged and maintained application code and deployed the system on AWS.",
+      ],
+    },
+    {
+      title: "SnapTask – Freelancer Platform with Cryptocurrency Payments",
+      role: "React, Node.js, ExpressJS, Web3.js, MongoDB, OAuth",
+      achievements: [
+        "Built and maintained the React application and Node.js/ExpressJS backend for a freelancer platform.",
+        "Implemented a cryptocurrency payment gateway to support payments on the platform.",
+      ],
+    },
+    {
+      title: "AIxBlock – No-code AI Agents",
+      role: "React, NestJS, FastAPI, Auth0, Redis, RabbitMQ, LangChain, MCP, VectorDB",
+      achievements: [
+        "Designed and developed a production-grade platform for building and deploying AI agents without coding, with React interfaces and NestJS/FastAPI services.",
+        "Built the RAG pipeline from document ingestion and preprocessing through chunking, embedding, indexing, and hybrid retrieval.",
+        "Integrated FAISS, Pinecone, and Weaviate, allowing users to select vector storage and embedding models for their use cases.",
+        "Developed configurable agents with MCP context management, dynamic prompts, and function calling.",
+        "Integrated Auth0 authentication and role-based access control, Redis caching and Pub/Sub, and RabbitMQ asynchronous processing pipelines.",
+      ],
+    },
+    {
+      title: "Administrative Document Sharing System",
+      role: "Next.js, Mantine UI, Spring Boot, NestJS, OpenFGA, RabbitMQ, Microservices, AWS",
+      achievements: [
+        "Analyzed requirements and implemented the Next.js application and NestJS backend services.",
+        "Implemented document-access authorization with OpenFGA and integrated single sign-on.",
+        "Wrote unit tests, debugged and maintained application code, and deployed the system on AWS.",
+      ],
+    },
+    {
+      title: "Social Media Post Collection & Trend Prediction",
+      role: "React, Next.js, MUI, FastAPI, Pyppeteer, LLM",
+      achievements: [
+        "Analyzed requirements and implemented the application interface with React and MUI.",
+        "Built a social-media post collector with Pyppeteer and FastAPI services for collection and trend prediction.",
+        "Wrote unit tests, debugged issues, and maintained the application and services.",
+      ],
+    },
+    {
+      title: "Virtual Assistant with Lightweight LLM (RAG-based System)",
+      role: "Ollama, React, shadcn/ui, FastAPI, LangChain, RAG, VectorDB",
+      achievements: [
+        "Developed a virtual assistant using local language models, with FastAPI backend APIs and a React/shadcn interface.",
+        "Implemented an end-to-end RAG pipeline and integrated a vector database for semantic search.",
+        "Optimized inference for low latency and resource efficiency, and handled performance tuning, debugging, and maintenance.",
+      ],
+    },
+    {
+      title: "AIxBlock – No-code AI Training Workflows",
+      role: "React, FastAPI, Auth0, MCP, Redis, LangChain, LLM, Grafana",
+      achievements: [
+        "Built configurable workflow templates and predefined scripts enabling non-technical users to train and experiment with AI models.",
+        "Implemented FastAPI services for AI workflows and training, and integrated LangChain and LLMs into configurable pipelines.",
+        "Integrated Auth0 authentication and role-based access control, and standardized pipeline configuration and context handling through MCP.",
+        "Monitored system performance and training workflows with Grafana.",
+      ],
+    },
+    {
+      title: "Cheating Detection in Examination with Computer Vision",
+      role: "Next.js, Material UI, NestJS, MediaPipe, FastAPI",
+      achievements: [
+        "Analyzed requirements and translated Figma designs into a Next.js examination application.",
+        "Integrated MediaPipe for face-behavior detection and implemented backend services with FastAPI.",
+        "Wrote, debugged, and maintained application code and contributed content to scientific research articles.",
+      ],
+    },
+    {
       title: "Driving License Learning & Examination Platform",
       role: "React, NestJS, Tauri, TypeScript, AI coding agents",
       achievements: [
@@ -128,19 +193,10 @@ const defaultResume: ResumeData = {
       ],
     },
     {
-      title: "Vkara – Collaborative Karaoke Platform",
-      role: "TypeScript, REST API, Redis, Docker, YouTube integration",
-      achievements: [
-        "Customised an open-source karaoke platform that turns a TV or laptop into a shared player; mobile users join rooms via code or QR and manage the playback queue remotely.",
-        "Maintained shared real-time state for rooms, queues, and playback across a monorepo full-stack codebase with Redis-backed services and Dockerised environments.",
-        "Validated every AI-generated change through review and testing before integration.",
-      ],
-    },
-    {
       title: "Ecommerce Application for Mall",
-      role: "Next.js, Ant Design, NestJS, MongoDB",
+      role: "Go (Golang), Next.js, Ant Design, MongoDB",
       achievements: [
-        "Built and maintained the storefront (Next.js) and backend (NestJS/MongoDB), including payment-gateway integration.",
+        "Built and maintained the Next.js storefront and Go backend with MongoDB, including payment-gateway integration.",
       ],
     },
   ],
